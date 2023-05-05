@@ -9,9 +9,10 @@ header {
     text-align: center;
     width: 100%;
     height: auto;
-    color: rgb(233, 234, 234);
+    color: rgb(0, 0, 0);
     border-radius: 5px;
-    border-color: rgb(255, 255, 255);
+    border-color: rgb(0, 0, 0);
+    background-color: #ffe1e1;
     font-size: auto;
     word-wrap: break-word;
     display: flex;
@@ -20,17 +21,22 @@ header {
     flex-wrap: wrap;
     box-sizing: border-box;
     margin: 0;
-  }
+}
   
-  header h1 {
+header h1 {
     margin-left: 3vh;
     text-align: center;
     max-width: 50%;
-  }
+}
   
-  header button {
-    margin-right: 1vh;
-  }
+header button {
+    margin-right: 5vh;
+    height: 40px;
+    width: 10%;
+    background-color: rgb(211, 216, 246);
+    border-radius: 9px;
+    font-size: 24px;
+}
   
 
 #recipe-list{
