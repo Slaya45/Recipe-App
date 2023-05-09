@@ -177,14 +177,17 @@ htmlLink.click();
 })
 
 function receiveData(recipe){
-  const recipeTitle = document.createElement('h2')
+  const recipeTitle = document.createElement('element')
   recipeTitle.textContent = recipe.title
+  recipeTitle.setAttribute('id', 'recipe-name')
 
-  const recipeDirections = document.createElement('p')
+  const recipeDirections = document.createElement('element')
   recipeDirections.textContent = recipe.directions
+  recipeDirections.setAttribute('id', 'recipe-description')
 
-  const recipeIngredients = document.createElement('p')
+  const recipeIngredients = document.createElement('element')
   recipeIngredients.textContent = recipe.ingredients
+  recipeIngredients.setAttribute('id', 'ingredient-list')
 
   document.body.appendChild(recipeTitle)
   document.body.appendChild(recipeDirections)
