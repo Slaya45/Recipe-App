@@ -15,7 +15,7 @@ createRecipeBtn.addEventListener('click', () => {
     <body>
       <h1></h1>
       
-      <form>
+      <form onsubmit="submitData()">
         <label for="Title-Box">Recipe Title:</label>
         <input type="text" id="Title-tb" name="Title-Box"><br>
   
@@ -27,8 +27,38 @@ createRecipeBtn.addEventListener('click', () => {
   
         <label for="image">Image:</label>
         <input type="file" id="image" name="image"><br>
+        
         <input type="submit" value="Submit">
+  
       </form>
+  
+  <script>
+  function submitData() {
+    const title = document.getElementById('Title-tb').value
+    const directions = document.getElementById('Recipe-Directions-tb').value
+    const ingredients = document.getElementById('Recipe-Ingredients-tb').value
+    const imageUpload = document.getElementById('image').value
+
+    const recipe = {
+      title: title,
+      directions: directions,
+      ingredients: ingredients,
+      image: imageUpload,
+    };
+
+    window.opener.receiveData(recipe)
+    window.close()
+  }
+
+  window.onload = function () {
+    const submitBtn = document.querySelector('input[type="submit"]')
+    submitBtn.addEventListener('click', (event) => {
+      event.preventDefault();
+      submitData()
+    })
+  }
+  </script>
+  
       <style>header {
           border-style: solid;
           text-align: center;
@@ -127,22 +157,42 @@ createRecipeBtn.addEventListener('click', () => {
       
     </body>
   </html>
+  
   `
    
   
 const htmlBlob = new Blob([htmlCode], { type: 'text/html' });
 
-
 const htmlUrl = URL.createObjectURL(htmlBlob);
 
-
 const htmlLink = document.createElement('a');
+
 const url = htmlUrl;
 
 htmlLink.click();
 
-
   window.open(url, '_blank')
 
   URL.revokeObjectURL(url)
+})
+
+function receiveData(recipe){
+  const recipeTitle = document.createElement('h2')
+  recipeTitle.textContent = recipe.title
+
+  const recipeDirections = document.createElement('p')
+  recipeDirections.textContent = recipe.directions
+
+  const recipeIngredients = document.createElement('p')
+  recipeIngredients.textContent = recipe.ingredients
+
+  document.body.appendChild(recipeTitle)
+  document.body.appendChild(recipeDirections)
+  document.body.appendChild(recipeIngredients)
+}
+
+const submitChildFormBtn = document.querySelector('#submit-child-form')
+submitChildFormBtn.addEventListener('click', () => {
+  const childWindow = window.open(url, '_blank')
+  childWindow.document.querySelector('form').submit()
 })
