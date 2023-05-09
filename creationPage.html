@@ -26,6 +26,28 @@
       <input type="file" id="image" name="image"><br>
       <input type="submit" value="Submit">
     </form>
+
+<script>
+    function submitData(){
+
+        const title = document.getElementById('Title-tb').value
+        const directions = document.getElementById('Recipe-Directions-tb')
+        const ingredients = document.getElementById('Recipe-Ingredients-tb')
+        const imageUpload = document.getElementById('image')
+
+        const recipe = {
+            title: title,
+            directions: directions,
+            ingredients: ingredients
+
+        }
+        window.opener.receiveData(recipe)
+
+        window.close()
+    } 
+
+</script>
+
     <style>header {
         border-style: solid;
         text-align: center;
