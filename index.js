@@ -33,30 +33,41 @@ createRecipeBtn.addEventListener('click', () => {
       </form>
   
   <script>
-  function submitData() {
-    const title = document.getElementById('Title-tb').value
-    const directions = document.getElementById('Recipe-Directions-tb').value
-    const ingredients = document.getElementById('Recipe-Ingredients-tb').value
-    const imageUpload = document.getElementById('image').value
-
-    const recipe = {
-      title: title,
-      directions: directions,
-      ingredients: ingredients,
-      image: imageUpload,
-    };
-
-    window.opener.receiveData(recipe)
-    window.close()
-  }
-
-  window.onload = function () {
-    const submitBtn = document.querySelector('input[type="submit"]')
-    submitBtn.addEventListener('click', (event) => {
-      event.preventDefault();
-      submitData()
-    })
-  }
+        const parentFolder = document.getElementById("recipe-div")
+  
+  const childElement = document.createElement("div")
+  
+  childElement.innerHTML = childData
+  
+  parentFolder.appendChild(childElement)
+  
+      function submitData() {
+      const title = document.getElementById('Title-tb').value
+      const directions = document.getElementById('Recipe-Directions-tb').value
+      const ingredients = document.getElementById('Recipe-Ingredients-tb').value
+      const imageUpload = document.getElementById('image').value
+  
+      const recipe = {
+        title: title,
+        directions: directions,
+        ingredients: ingredients,
+        image: imageUpload,
+      };
+  
+      window.opener.receiveData(recipe)
+      window.close()
+    }
+  
+    window.onload = function () {
+      const submitBtn = document.querySelector('input[type="submit"]')
+      submitBtn.addEventListener('click', (event) => {
+        event.preventDefault();
+        submitData()
+      })
+      
+  
+    }
+  
   </script>
   
       <style>header {
@@ -157,6 +168,7 @@ createRecipeBtn.addEventListener('click', () => {
       
     </body>
   </html>
+  
   
   `
    
