@@ -32,7 +32,7 @@ header h1 {
 header button {
     margin-right: 5vh;
     height: 40px;
-    width: 10%;
+    width: 16%;
     background-color: rgb(174, 186, 255);
     border-radius: 9px;
     font-size: 24px;
@@ -52,13 +52,15 @@ header button {
 #recipe-description{
     max-width: 50%;
     margin: 0 auto;
+    
 }
-.recipe-grid {
+.recipe-grid{
     padding: 5vh;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 4%;
   }
+
   
 .recipe {
     align-items: center;

@@ -11,35 +11,35 @@ createRecipeBtn.addEventListener('click', () => {
     <header>
       <h1>Recipe Creation</h1>
       <button id="back-home">Home</button>
+    
     </header>
     <body>
-      <h1></h1>
       
       <form onsubmit="submitData()">
+     
         <label for="Title-Box">Recipe Title:</label>
         <input type="text" id="Title-tb" name="Title-Box"><br>
   
         <label id="Directions-Label" for="Recipe-Directions">Directions for my New Recipe:</label>
-        <textarea id="Recipe-Directions-tb" rows = "10" cols = "80" name = "directions"></textarea><br>
+        <textarea id="Recipe-Directions-tb" rows = "8" cols = "70" name = "directions"></textarea><br>
   
         <label id="Ingredients-Label" for="Ingredients-Label">Ingredient list</label>
-        <textarea id="Recipe-Ingredients-tb" rows = "8" cols = "80" name = "ingredients"></textarea><br>
+        <textarea id="Recipe-Ingredients-tb" rows = "10" cols = "70" name = "ingredients"></textarea><br>
   
         <label for="image">Image:</label>
         <input type="file" id="image" name="image"><br>
         
-        <input type="submit" value="Submit">
-  
+        <input id="submitBtn" type="submit" value="Submit">
       </form>
   
   <script>
-        const parentFolder = document.getElementById("recipe-div")
+     
   
-  const childElement = document.createElement("div")
   
-  childElement.innerHTML = childData
   
-  parentFolder.appendChild(childElement)
+  childElement.innerHTML = childData;
+  
+  parentFolder.appendChild(childElement);
   
       function submitData() {
       const title = document.getElementById('Title-tb').value
@@ -56,7 +56,7 @@ createRecipeBtn.addEventListener('click', () => {
   
       window.opener.receiveData(recipe)
       window.close()
-    }
+    };
   
     window.onload = function () {
       const submitBtn = document.querySelector('input[type="submit"]')
@@ -66,11 +66,13 @@ createRecipeBtn.addEventListener('click', () => {
       })
       
   
-    }
+    };
   
   </script>
   
-      <style>header {
+      <style>
+      
+      header {
           border-style: solid;
           text-align: center;
           width: 100%;
@@ -78,7 +80,7 @@ createRecipeBtn.addEventListener('click', () => {
           color: rgb(0, 0, 0);
           border-radius: 5px;
           border-color: rgb(0, 0, 0);
-          background-color: #ffe1e1;
+          background-color: #6bd7ef;
           font-size: auto;
           word-wrap: break-word;
           display: flex;
@@ -107,7 +109,7 @@ createRecipeBtn.addEventListener('click', () => {
       form{
           text-align: center;
           align-items: center;
-          background-color: bisque;
+          background: linear-gradient(to right, #ffffff, #ffc7c7);
           
       }
       label{
@@ -116,7 +118,7 @@ createRecipeBtn.addEventListener('click', () => {
       }
       #Title-tb{
           padding: .4%;
-          border-width: 2px;
+          border-width: 5px;
           box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
           margin: 2vh;
           font-size: 22px;
@@ -126,7 +128,7 @@ createRecipeBtn.addEventListener('click', () => {
           padding-top: 1vh;
           display: inline-block;
           vertical-align: top;
-          margin-top: 20px; 
+          margin-top: 1vhpx; 
       }
       #Recipe-Directions{ 
           width: 80%;
@@ -134,33 +136,38 @@ createRecipeBtn.addEventListener('click', () => {
           font-size: 24px;
       }
       #Recipe-Directions-tb{
-          width: 80%;
-          margin-top: 20px; 
+        width: 80%;
+          margin-top: 6px; 
           font-size: 24px;
-          padding: 2%;
-          border-width: 2px;
+          padding: 1%;
+          border-width: 5px;
           box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
-          margin: 2vh;
-      
+          margin: 0;
       }
       
       #Ingredients-Label {
           padding-top: 1vh;
-          padding-bottom: 4vh;
+          padding-bottom: 2vh;
           display: block;
           font-size: 30px;
       }
         
       #Recipe-Ingredients-tb {
           width: 80%;
-          margin-top: 10px; 
+          margin-top: 6px; 
           font-size: 24px;
-          padding: 2%;
-          border-width: 2px;
+          padding: 1%;
+          border-width: 5px;
           box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.1);
-          margin: 2vh;
+          margin: 0;
       }
-        
+      #submitBtn{
+        height: 40px;
+          width: 10%;
+          background-color: rgb(174, 186, 255);
+          border-radius: 9px;
+          font-size: 24px;
+      }
       
       #image{
           margin: 2vh;
